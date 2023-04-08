@@ -1,0 +1,15 @@
+vector<int> makeBeautiful(vector<int> arr) {
+        // code here
+        vector<int> res;
+        int n = arr.size();
+        int i = 0;
+        while(i < n){
+           if(res.size() == 0 || (res.back() >= 0 && arr[i] >= 0) || (res.back() < 0 && arr[i] < 0)) {
+               res.push_back(arr[i]);
+           }else{
+               res.pop_back();
+           }
+           i++;
+        }
+        return res;
+    }
