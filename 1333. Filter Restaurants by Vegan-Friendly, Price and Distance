@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> filterRestaurants(vector<vector<int>>& restaurants, int veganFriendly, int maxPrice, int maxDistance) {
+        vector<int>ans;
+        vector<pair<int,int>>v;
+        for(auto it:restaurants)
+        {
+            if(veganFriendly==1)
+            {
+            if(it[2]==veganFriendly && it[3]<=maxPrice && it[4]<=maxDistance)
+            {
+                v.push_back(make_pair(it[1],it[0]));
+            }
+            }
+            else
+            {
+                if(it[3]<=maxPrice && it[4]<=maxDistance)
+                {
+                 v.push_back(make_pair(it[1],it[0]));
+                }
+            }
+        }
+        sort(v.begin(),v.end());
+        for(auto it:v)
+        {
+            ans.push_back(it.second);
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
